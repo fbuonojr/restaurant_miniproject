@@ -1,0 +1,32 @@
+Front End: (Robert and Frank):
+-3 html files
+    -home, reservation, waitlist
+-home:
+    jumbotron:
+        header
+        two buttons: view table, make reservation
+    footer navbar?:
+        api table link
+        api waitlist link
+-reservation:
+    same jumbotron as home w/ different buttons
+    input form with name, email, phone number, unique id
+    cards with info about occupied tables
+-waitlist page:
+    list of current reservation (cards)
+    list of waitlist (cards)
+
+Back End (Chris and Ivan):
+    create server w/ express
+        require express and path
+        set up port for testing (maske dynamic for heroku)
+        variables (arrays of objects) for table and waitlist
+            push functions for both
+            functino to create object to be pushed to array
+    routes for html pages and getting data w/ post
+
+Bonus:
+    add buttons for checking off individuals from the list
+    add code to server so it counts each time a page is visited it adds one and displays
+    add button for sending emails to individuals on the waiting list letting them know they have a table ready
+    add a button for texting individuals on waiting list to let them know they have a table ready
