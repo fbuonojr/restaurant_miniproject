@@ -65,6 +65,11 @@ function addGuest(guest) {
     }
 }
 
+function removeGuest() {
+    
+}
+
+
 //Guest class
 class Guest {
     constructor(id, name, email, phone) {
