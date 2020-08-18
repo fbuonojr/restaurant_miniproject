@@ -18,36 +18,36 @@
   <div class="container">
     <div class="jumbotron">
       <div class="container">
-          <h1 class="text-center">
-                  <span class="fa fa-fire fireIcon"></span>
-              Hot Restaurant
-                  <span class="fa fa-fire fireIcon"></span>
-          </h1>
-          <hr>
-          <br>
-          <div class="text-center">
-              <h4>
-              Get a table while you still can!
-              </h4>
-          </div>
-          <br>
-          <br>
-          <div class="text-center">
-              <a href="/tables">
-                  <button class="btn btn-primary">
-                      <span class="fa fa-list"></span>
-                          View Tables
-                  </button>
-              </a>
-              <a href="/add">
-                  <button class="btn btn-danger">
-                      <span class="fa fa-list"></span>
-                          Make Reservation
-                  </button>
-              </a>
-          </div>
+        <h1 class="text-center">
+          <span class="fa fa-fire fireIcon"></span>
+          Hot Restaurant
+          <span class="fa fa-fire fireIcon"></span>
+        </h1>
+        <hr>
+        <br>
+        <div class="text-center">
+          <h4>
+            Get a table while you still can!
+          </h4>
+        </div>
+        <br>
+        <br>
+        <div class="text-center">
+          <a href="/tables">
+            <button class="btn btn-primary">
+              <span class="fa fa-list"></span>
+              View Tables
+            </button>
+          </a>
+          <a href="/add">
+            <button class="btn btn-danger">
+              <span class="fa fa-list"></span>
+              Make Reservation
+            </button>
+          </a>
+        </div>
       </div>
-  </div>
+    </div>
     <div class="row">
 
       <div class="col-12">
@@ -80,26 +80,46 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <h5 id="navbarHeader">
+                      API Links:
+                  </h5>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link navElements" href="#">API Table Link</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link navElements" href="#">API Waitlist</a>
+              </li>
+          </ul>
+      </nav>
+  </footer>
+  </div>
 
-        <script type="text/javascript">
+  <script type="text/javascript">
 
-          $.get("/api/tables/", function (data) {
-            console.log(data);
-            if (data) {
-              $("#table").show();
-              $("#id").text(data.id);
-              $("#name").text(data.name);
-              $("#email").text(data.email);
-              $("#phone").text(data.phone);
-            } else {
-              $("#name").text(
-                "Your Table is Ready.");
-              $("#table").hide();
-            }
-          });
+    $.get("/api/tables/", function (data) {
+      console.log(data);
+      if (data) {
+        $("#table").show();
+        $("#id").text(data.id);
+        $("#name").text(data.name);
+        $("#email").text(data.email);
+        $("#phone").text(data.phone);
+      } else {
+        $("#name").text(
+          "Your Table is Ready.");
+        $("#table").hide();
+      }
+    });
 
 
-        </script>
+  </script>
 </body>
 
 </html>
