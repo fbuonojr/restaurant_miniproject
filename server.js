@@ -16,7 +16,7 @@ var PORT = process.env.PORT || 3000;
 
 // ROUTES FOR HTML PAGES
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
 })
 
 app.get("/add", function (req, res) {
@@ -66,7 +66,7 @@ function addGuest(guest) {
 }
 
 function removeGuest() {
-    
+
 }
 
 
