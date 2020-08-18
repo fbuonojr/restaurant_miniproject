@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <title>Star Wars - Express</title>
   <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./style.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -18,14 +17,37 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Star Wars Express</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
-      <hr>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
-          Character</button></a>
-      <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-eye"></span> All Characters</button></a>
-    </div>
+      <div class="container">
+          <h1 class="text-center">
+                  <span class="fa fa-fire fireIcon"></span>
+              Hot Restaurant
+                  <span class="fa fa-fire fireIcon"></span>
+          </h1>
+          <hr>
+          <br>
+          <div class="text-center">
+              <h4>
+              Get a table while you still can!
+              </h4>
+          </div>
+          <br>
+          <br>
+          <div class="text-center">
+              <a href="/tables">
+                  <button class="btn btn-primary">
+                      <span class="fa fa-list"></span>
+                          View Tables
+                  </button>
+              </a>
+              <a href="/add">
+                  <button class="btn btn-danger">
+                      <span class="fa fa-list"></span>
+                          Make Reservation
+                  </button>
+              </a>
+          </div>
+      </div>
+  </div>
     <div class="row">
 
       <div class="col-12">
@@ -36,43 +58,48 @@
           </div>
           <div class="card-body">
             <div class="card-body">
-                <ul id="tableList" class="list-group">
-                    <li class="list-group-item mt-4"><h2>Table #1</h2><hr><h2>ID: 1</h2>
-                        <h2>Name: Matthew Volonnino</h2><h2>Email: mvolonnino12@gmail.com</h2>
-                        <h2>Phone: 19083479488</h2></li>
-                    </ul>
-              </div>
+              <ul id="tableList" class="list-group">
+                <li class="list-group-item mt-4">
+                  <h2>Table #1</h2>
+                  <hr>
+                  <h2>ID: 1</h2>
+                  <h2>Name: Matthew Volonnino</h2>
+                  <h2>Email: mvolonnino12@gmail.com</h2>
+                  <h2>Phone: 19083479488</h2>
+                </li>
+              </ul>
+            </div>
 
-              <div class="card mt-4">
-                <div class="card-header">
-                  <h4>Waiting List</h4>
-                    </div>
-                    <div class="card-body">
-                  <ul id="waitList" class="list-group"></ul>
-                </div>
+            <div class="card mt-4">
+              <div class="card-header">
+                <h4>Waiting List</h4>
               </div>
+              <div class="card-body">
+                <ul id="waitList" class="list-group"></ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
 
-  <script type="text/javascript">
+        <script type="text/javascript">
 
-      $.get("/api/tables/" , function(data) {
-        console.log(data);
-        if (data) {
-          $("#table").show();
-          $("#id").text(data.id);
-          $("#name").text(data.name);
-          $("#email").text(data.email);
-          $("#phone").text(data.phone);
-        } else {
-          $("#name").text(
-            "Your Table is Ready.");
-          $("#table").hide();
-        }
-      });
-    
+          $.get("/api/tables/", function (data) {
+            console.log(data);
+            if (data) {
+              $("#table").show();
+              $("#id").text(data.id);
+              $("#name").text(data.name);
+              $("#email").text(data.email);
+              $("#phone").text(data.phone);
+            } else {
+              $("#name").text(
+                "Your Table is Ready.");
+              $("#table").hide();
+            }
+          });
 
-  </script>
+
+        </script>
 </body>
 
 </html>
