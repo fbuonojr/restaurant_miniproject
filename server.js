@@ -11,8 +11,8 @@ const MAX_GUESTS = 5;
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// app.use(express.json());
-
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 // ROUTES FOR HTML PAGES
 app.get("/", (req, res) => {
@@ -38,10 +38,11 @@ app.get("/api/waitlist", function (req, res) {
 
 //POST METHODS
 
-app.post("/api/tables", function (req, res) {
+app.post("/api/tables", function(req, res) {
     var newGuest = req.body;
+    console.log(newGuest);
     if (newGuest != null) {
-        console.log(newGuest);
+        // console.log(newGuest);
         let onReservations = addGuest(newGuest);
         res.json(onReservations);
     }
@@ -65,8 +66,14 @@ function addGuest(guest) {
     }
 }
 
-function removeGuest() {
+function removeGuest(guest_name) {
+    tables = tables.filter(guest => {guest.name != guest_name});
+    waitlist = waitlist.filter(guest => {guest.name != guest_name});
+}
 
+function clearLists() {
+    tables = [];
+    waitlist = [];
 }
 
 
