@@ -120,6 +120,11 @@
         .then(function (data) {
           console.log("add.html", data);
           alert("Adding Guest...");
+          if(data){
+            alert("Thank you for your reservation!")
+          } else {
+            alert("Sorry, but you are on the waiting list.")
+          }
         });
     });
   </script>
