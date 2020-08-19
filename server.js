@@ -66,8 +66,14 @@ function addGuest(guest) {
     }
 }
 
-function removeGuest() {
+function removeGuest(guest_name) {
+    tables = tables.filter(guest => {guest.name != guest_name});
+    waitlist = waitlist.filter(guest => {guest.name != guest_name});
+}
 
+function clearLists() {
+    tables = [];
+    waitlist = [];
 }
 
 
