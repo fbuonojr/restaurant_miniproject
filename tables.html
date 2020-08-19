@@ -57,14 +57,14 @@
           <div class="card-body">
             <div class="card-body">
               <ul id="tableList" class="list-group">
-                <li class="list-group-item mt-4">
+                <!-- <li class="list-group-item mt-4">
                   <h2>Table #1</h2>
                   <hr>
                   <h2>ID: 1</h2>
                   <h2>Name: Matthew Volonnino</h2>
                   <h2>Email: mvolonnino12@gmail.com</h2>
                   <h2>Phone: 19083479488</h2>
-                </li>
+                </li> -->
               </ul>
             </div>
 
@@ -100,16 +100,35 @@
   </div>
 
   <script type="text/javascript">
+  // <ul id="tableList" class="list-group">
+    // <h2>Table #1</h2>
+    //                 <hr>
+    //                 <h2>ID: 1</h2>
+    //                 <h2>Name: Matthew Volonnino</h2>
+    //                 <h2>Email: mvolonnino12@gmail.com</h2>
+    //                 <h2>Phone: 19083479488</h2>
+
 
     $.get("/api/tables/", function (data) {
       console.log(data);
       if (data) {
-        $("#table").show();
-        $("#id").text(data.id);
-        $("#name").text(data.name);
-        $("#email").text(data.email);
-        $("#phone").text(data.phone);
-      } else {
+        let tableLi = $("#tableList");
+        let listEl = $("<li>");
+        let tableEl = $("<h2>").text("Table #");
+        let lineBreak = $("<hr>");
+        let idEl = $("<h2>").text(data.id);
+        let nameEl = $("<h2>").text(data.name);
+        let emailEL = $("<h2>").text(data.email);
+        let phoneEl = $("<h2>").text(data.phone);
+        listEl.append(tableEl);
+        listEl.append(lineBreak);
+        listEl.append(idEl);
+        listEl.append(nameEl);
+        listEl.append(emailEL);
+        listEl.append(phoneEl);
+        tableLi.append(listEl);
+        tableLi.show();
+        } else {
         $("#name").text(
           "Your Table is Ready.");
         $("#table").hide();
